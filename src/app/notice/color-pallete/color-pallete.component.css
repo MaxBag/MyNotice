@@ -1,0 +1,41 @@
+.pallete-block {
+    background: #f3eded;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    display: none;
+    height: 86px;
+    padding: 5px 5px 0;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+    width: 138px;
+    transition: opacity 0.6s;
+}
+
+.color-item-block {
+    border-radius: 22px;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-border-radius: 22px;
+    float: left;
+    height: 22px;
+    margin: 0 5px 5px;
+    width: 22px;
+    user-select: none;
+}
+
+.color-item-block:hover {
+    opacity: 0.7;
+}
+
+.visible-pallete {
+    display: block;
+    opacity: 1;
+}
+
+.selected-color {
+    border: 1px solid blue;
+}

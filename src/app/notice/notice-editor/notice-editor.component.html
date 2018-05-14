@@ -1,0 +1,18 @@
+<div class="wrapper" *ngIf="noticeOne">
+  <div class="main-editor" [style.backgroundColor]="currentColor" [@flyInOut]="in">
+    <div class="title">
+      <textarea type="text" [class.error]="isErrorText" #titleField [value]='title' (input)="setTitle(titleField.value)" (focus)="onFocusField('title', titleField.value)" (blur)="onBlurField('title', titleField.value)" appHorizontalScrollField></textarea>
+    </div>
+    <div class="notice">
+      <textarea type="text" [class.error]="isErrorText" #noticeField [value]='notice' (input)="setNotice(noticeField.value)" (focus)="onFocusField('notice', noticeField.value)" (blur)="onBlurField('notice', noticeField.value)" appHorizontalScrollField></textarea>
+    </div>
+    <div class="toolbar">
+      <div class="btn-change-color" (click)="showPallete()" appSetCoord></div>
+      <div class="btn-save" (click)="onClickBtnSave($event)">Save</div>
+      <div class="btn-reset" (click)="onClickBtnReset()">Reset</div>
+      <div class="btn-label" (click)="showLabels()" appSetCoord>Add Label</div>
+      <app-color-pallete [palleteState]='palleteState' [posForPallete]="posForPallete" [isShownPallete]="isShownPallete" (changedCurrentColor)="setColor($event)"></app-color-pallete>
+      <app-label [posForLabel]="posForLabel" [isShownLabel]="isShownLabel"></app-label>
+    </div>
+  </div>
+</div>

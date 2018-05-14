@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+.mat-checkbox-frame {
+  border: #000;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(/assets/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url(/assets/RobotoCondensed-Bold.ttf);
+  font-weight: bold;
+}
+
+body{
+  margin:0;
+  color:#333;
+  font:30px/1.166em Arial, Helvetica, sans-serif;
+  background: #CAC8C7;
+  height: 100%;
+}
+
+img{border-style:none;}
+  
+a{
+  color:#000;
+}
+a:hover{text-decoration:none;}
+  
+/* input{
+  font:100% Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+} */
+
+form,fieldset{
+    margin:0;
+    padding:0;
+    border-style:none;
+}
+  
+select {
+  outline: none;
+}

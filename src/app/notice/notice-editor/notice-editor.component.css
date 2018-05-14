@@ -1,0 +1,88 @@
+.wrapper {
+    width: 80%;
+    margin: 100px auto 0;
+}
+.main-editor {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    background: #fff;
+    border-radius: 8px;
+    min-height: 200px;
+    width: 570px;
+    margin: 0 auto 30px;
+    padding: 15px 0 0;
+}
+
+.tiles {
+    width: 200px;
+    padding: 0 0 0 20px;
+}
+
+.title, .notice {
+    padding: 10px 15px;
+    outline: none;
+    margin: 0 0 10px;
+}
+
+.title textarea, .notice textarea {
+    border: none; 
+    background: transparent;
+    width: 100% !important;
+    outline: none;
+    resize: none;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+} 
+
+.title textarea{
+  font: bold 17px/1.35em 'Roboto Condensed', arial, sans-serif;
+}
+
+.notice textarea{
+    font: 16px/1.36em 'Roboto Slab', 'Times New Roman', serif;
+}
+
+.error {
+    color: red;
+}
+
+.toolbar {
+	padding: 0 20px;
+	position: relative;
+}
+
+.toolbar:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.btn-change-color {
+    float: left;
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    background: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE4cHgiIHdpZHRoPSIxOHB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzAwMDAwMCI+CiA8cGF0aCBkPSJtMjQgNmMtOS45NCAwLTE4IDguMDYtMTggMThzOC4wNiAxOCAxOCAxOGMxLjY2IDAgMy0xLjM0IDMtMyAwLTAuNzgtMC4yOS0xLjQ4LTAuNzgtMi4wMS0wLjQ3LTAuNTMtMC43NS0xLjIyLTAuNzUtMS45OSAwLTEuNjYgMS4zNC0zIDMtM2gzLjUzYzUuNTIgMCAxMC00LjQ4IDEwLTEwIDAtOC44NC04LjA2LTE2LTE4LTE2em0tMTEgMThjLTEuNjYgMC0zLTEuMzQtMy0zczEuMzQtMyAzLTMgMyAxLjM0IDMgMy0xLjM0IDMtMyAzem02LThjLTEuNjYgMC0zLTEuMzQtMy0zczEuMzQtMyAzLTMgMyAxLjM0IDMgMy0xLjM0IDMtMyAzem0xMCAwYy0xLjY2IDAtMy0xLjM0LTMtM3MxLjM0LTMgMy0zIDMgMS4zNCAzIDMtMS4zNCAzLTMgM3ptNiA4Yy0xLjY2IDAtMy0xLjM0LTMtM3MxLjM0LTMgMy0zIDMgMS4zNCAzIDMtMS4zNCAzLTMgM3oiLz4KIDxwYXRoIGQ9Im0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K) center no-repeat;
+    opacity: 0.7;
+}
+
+.btn-change-color:hover {
+    opacity: 1;
+}
+
+.btn-save, .btn-reset, .btn-label, .btn-edit, .btn-delete {
+    cursor: pointer;
+    float: right;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: 13px/1.31em 'Roboto',arial,sans-serif;;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    position: relative;
+    user-select: none;
+}
+
+.btn-save:hover, .btn-reset:hover, .btn-label:hover, .btn-edit:hover, .btn-delete:hover {
+    background: rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,3 @@
+<div class="pallete-block" [class.visible-pallete]="isShownPallete" [style.top]="posForPallete" [@showPalleteAnimation]="palleteState">
+  <div class="color-item-block" *ngFor="let color of colors" [style.backgroundColor]="color" [style.border] = "'1px solid '+ color" (click)="onChangeCurrentColor($event)" appSelectedColor></div>
+</div>
