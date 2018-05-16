@@ -5,16 +5,10 @@
     border-radius: 8px;
     cursor: pointer;
     min-height: 50px;
-    width: 570px;
+    width: 100%;
     padding: 15px 0 0;
     margin: 0 0 20px;
     vertical-align: top;
-}
-
-.tiles {
-    width: 254px;
-    float: left;
-    margin: 0 0 20px 20px;
 }
 
 .title, .notice {
@@ -78,4 +72,16 @@
 
 .btn-save:hover, .btn-reset:hover, .btn-label:hover, .btn-edit:hover, .btn-delete:hover {
     background: rgba(0, 0, 0, 0.08);
+}
+
+.tiles {
+    width: 254px;
+    float: left;
+    margin: 0 0 20px 20px;
+}
+
+.tiles .btn-delete,
+.tiles .btn-save,
+.tiles .btn.btn-reset {
+    padding: 8px 5px;
 }

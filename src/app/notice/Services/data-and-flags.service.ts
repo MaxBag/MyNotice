@@ -7,6 +7,7 @@ export class DataAndFlagsService {
   coordsBtn: string;
   isListView = true;
   isBtnShowMenuClicked = false;
+  isAddedNewNotice = false;
 
   constructor() { }
 
@@ -28,6 +29,10 @@ export class DataAndFlagsService {
 
   getListViewVal(): Observable<boolean> {
     return of(this.isListView);
+  }
+
+  addedNewNotice(): Observable<boolean> {
+    return of(this.isAddedNewNotice);
   }
 
 

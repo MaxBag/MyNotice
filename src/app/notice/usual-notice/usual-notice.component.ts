@@ -3,6 +3,7 @@ import { NoticeCreatorComponent } from '../notice-creator/notice-creator.compone
 import { DataAndFlagsService } from '../Services/data-and-flags.service';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/map';
+import { HttpService } from '../Services/http.service';
 
 @Component({
   selector: 'app-usual-notice',
@@ -15,8 +16,8 @@ export class UsualNoticeComponent extends NoticeCreatorComponent implements OnIn
   isListView: boolean;
   subscription: Subscription;
 
-  constructor(public dataAndFlagsService: DataAndFlagsService) {
-    super(dataAndFlagsService);
+  constructor(public dataAndFlagsService: DataAndFlagsService, public http: HttpService) {
+    super(dataAndFlagsService, http);
    }
 
   ngOnInit() {

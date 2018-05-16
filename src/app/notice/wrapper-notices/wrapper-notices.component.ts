@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wrapper-notices.component.css']
 })
 export class WrapperNoticesComponent implements OnInit {
-
+  isAddedNotice = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  renderAllNotices(data: boolean) {
+    this.isAddedNotice = data;
+  }
+
+  reRenderAllNotices(data: boolean) {
+    this.isAddedNotice = data;
   }
 
 }

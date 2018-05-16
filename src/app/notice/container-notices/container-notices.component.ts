@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck, Input, Output, EventEmitter } from '@angular/core';
 import { HttpService } from '../Services/http.service';
 import { Subscription } from 'rxjs/Subscription';
+import { DataAndFlagsService } from '../Services/data-and-flags.service';
 
 @Component({
   selector: 'app-container-notices',
@@ -8,11 +9,18 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./container-notices.component.css']
 })
 export class ContainerNoticesComponent implements OnInit, OnDestroy {
-  // create Notice class like type in the future
-  notes: any;
-  subscription: Subscription;
 
-  constructor(private httpService: HttpService) { }
+  @Input() set addNewNotice(isAddedNotice: boolean) {
+    this.getAllNotices();
+  }
+
+  @Output() addedNewNotice = new EventEmitter<boolean>();
+
+  notes$: any;
+  subscription: Subscription;
+  subscriptionOnAddedNewNotice: Subscription;
+
+  constructor(private httpService: HttpService, private dataAndFlags: DataAndFlagsService) { }
 
   ngOnInit() {
     this.getAllNotices();
@@ -23,8 +31,14 @@ export class ContainerNoticesComponent implements OnInit, OnDestroy {
   }
 
   getAllNotices() {
-    this.subscription = this.httpService.getAllNotices().subscribe((data) => { this.notes = data; });
+    this.subscription = this.httpService.getAllNotices().subscribe((data) => {
+      this.notes$ = data.reverse();
+      this.addedNewNotice.emit(false);
+    });
   }
 
+  // checkAdded() {
+  //   this.subscriptionOnAddedNewNotice = this.dataAndFlags.addedNewNotice().subscribe(() => this.getAllNotices());
+  // }
 
 }

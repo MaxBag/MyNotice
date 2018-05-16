@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { DataAndFlagsService } from '../Services/data-and-flags.service';
+import { HttpService } from '../Services/http.service';
+import { Subscription } from 'rxjs/Subscription';
 
 const titleText = 'Enter a title';
 const noticeText = 'Notice...';
@@ -9,9 +11,11 @@ const noticeText = 'Notice...';
   templateUrl: './notice-creator.component.html',
   styleUrls: ['./notice-creator.component.css']
 })
-export class NoticeCreatorComponent implements OnInit {
+export class NoticeCreatorComponent implements OnInit, OnDestroy {
 
-  currentColor: string;
+  @Output() clickedBtnSave = new EventEmitter<boolean>();
+
+  currentColor = '#fff';
   posForPallete: string;
   posForLabel: string;
   isShownPallete = false;
@@ -20,10 +24,19 @@ export class NoticeCreatorComponent implements OnInit {
   palleteState = 'inactive';
   title = titleText;
   notice = noticeText;
+  label: string;
+  subscriptionOnAddedNewNotice: Subscription;
+  destroyIt: boolean;
 
-  constructor(public dataAndFlagService: DataAndFlagsService) { }
+  constructor(public dataAndFlagService: DataAndFlagsService, public http: HttpService) { }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    if (this.destroyIt) {
+      this.subscriptionOnAddedNewNotice.unsubscribe();
+    }
   }
 
   setTitle(title: string) {
@@ -95,6 +108,23 @@ export class NoticeCreatorComponent implements OnInit {
       || this.notice === noticeText || this.notice === '') {
         event.preventDefault();
         this.isErrorText = true;
+    } else {
+      const note = {
+        id: (new Date()).getTime(),
+        title: this.title,
+        notice: this.notice,
+        color: this.currentColor,
+        label: this.label
+      };
+
+      this.destroyIt = true;
+
+      this.subscriptionOnAddedNewNotice = this.http.addNotice(note).
+      subscribe(data => {
+        this.clickedBtnSave.emit(true);
+        this.dataAndFlagService.isAddedNewNotice = true;
+        this.onClickBtnReset();
+      });
     }
   }
 

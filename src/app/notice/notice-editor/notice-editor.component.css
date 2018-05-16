@@ -71,7 +71,7 @@
     opacity: 1;
 }
 
-.btn-save, .btn-reset, .btn-label, .btn-edit, .btn-delete {
+.btn-save, .btn-reset, .btn-label, .btn-edit, .btn-back, .btn-delete {
     cursor: pointer;
     float: right;
     -webkit-border-radius: 3px;
@@ -83,6 +83,6 @@
     user-select: none;
 }
 
-.btn-save:hover, .btn-reset:hover, .btn-label:hover, .btn-edit:hover, .btn-delete:hover {
+.btn-save:hover, .btn-reset:hover, .btn-label:hover, .btn-edit:hover, .btn-back:hover, .btn-delete:hover {
     background: rgba(0, 0, 0, 0.08);
 }
