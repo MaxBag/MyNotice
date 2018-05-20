@@ -114,7 +114,8 @@ export class NoticeCreatorComponent implements OnInit, OnDestroy {
         title: this.title,
         notice: this.notice,
         color: this.currentColor,
-        label: this.label
+        label: this.label,
+        changeTime: (new Date().getTime())
       };
 
       this.destroyIt = true;

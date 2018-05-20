@@ -23,18 +23,18 @@ const noticeText = 'Notice...';
   styleUrls: ['./notice-editor.component.css'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({opacity: 1, transform: 'translateX(0)'})),
+      state('in', style({opacity: 1, transform: 'translateY(0)'})),
       transition('void => *', [
         style({
           opacity: 0,
-          transform: 'translateX(-100%)'
+          transform: 'translateY(100%)'
         }),
         animate('0.15s ease-in')
       ]),
       transition('* => void', [
         animate('0.2s 0.1s ease-out', style({
           opacity: 0,
-          transform: 'translateX(100%)'
+          transform: 'translateY(100%)'
         }))
       ])
     ])
@@ -48,10 +48,10 @@ export class NoticeEditorComponent extends NoticeCreatorComponent implements OnI
   isOnDeleteDestroy: boolean;
   isOnSaveDestroy: boolean;
 
-  constructor(public dataAndFlagService: DataAndFlagsService, public http: HttpService,
+  constructor(public dataAndFlagsService: DataAndFlagsService, public http: HttpService,
     private route: ActivatedRoute, private router: Router) {
 
-    super(dataAndFlagService, http);
+    super(dataAndFlagsService, http);
 
   }
 
@@ -98,11 +98,11 @@ export class NoticeEditorComponent extends NoticeCreatorComponent implements OnI
         title: this.title,
         color: this.currentColor,
         id: this.noticeOne.id,
-        label: ''
+        label: '',
+        changeTime: (new Date().getTime())
       };
 
       this.subscriptionOnSave = this.route.paramMap.switchMap((params: ParamMap) => {
-        console.log(updatedNotice);
         return this.http.updateNotice(updatedNotice);
       }).subscribe(() => {
         this.isOnSaveDestroy = true;

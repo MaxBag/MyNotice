@@ -1,2 +1,3 @@
 <app-notice-creator (clickedBtnSave)="renderAllNotices($event)"></app-notice-creator>
-<app-container-notices [addNewNotice]="isAddedNotice" (addedNewNotice)="reRenderAllNotices($event)"></app-container-notices>
+<app-container-notices [addNewNotice]="isAddedNotice" (addedNewNotice)="reRenderAllNotices($event)" [notes$]="notes"></app-container-notices>
+

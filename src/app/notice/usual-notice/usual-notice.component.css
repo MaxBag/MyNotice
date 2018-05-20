@@ -1,3 +1,7 @@
+.usual-notice:hover {
+	transform: scale(1.006);
+}
+
 .usual-notice {
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5); 
@@ -32,6 +36,17 @@
 
 .error {
     color: red;
+}
+
+.time-holder {
+    font-size: 12px;
+    font-style: italic;
+    padding: 0 25px;
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
 }
 
 .toolbar {

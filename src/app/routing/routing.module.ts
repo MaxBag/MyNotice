@@ -7,12 +7,15 @@ import { UsualNoticeComponent } from '../notice/usual-notice/usual-notice.compon
 import { NoticeCreatorComponent } from '../notice/notice-creator/notice-creator.component';
 import { WrapperNoticesComponent } from '../notice/wrapper-notices/wrapper-notices.component';
 import { NoticeEditorContainerComponent } from '../notice/notice-editor-container/notice-editor-container.component';
+import { ContainerNoticesComponent } from '../notice/container-notices/container-notices.component';
+import { NoticeContainerWrapperComponent } from '../notice/notice-container-wrapper/notice-container-wrapper.component';
 
 const routes: Routes  = [
   { path: '', redirectTo: 'notices', pathMatch: 'full' },
   { path: 'notices', component: GeneralNoticesComponent, children: [
     { path: '', redirectTo: 'all-notices', pathMatch: 'full' },
     { path: 'all-notices', component: WrapperNoticesComponent },
+    { path: 'search', component: NoticeContainerWrapperComponent },
     { path: 'edit/:id', component: NoticeEditorContainerComponent }
   ]}
 ];

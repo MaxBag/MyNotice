@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, DoCheck, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { HttpService } from '../Services/http.service';
 import { Subscription } from 'rxjs/Subscription';
 import { DataAndFlagsService } from '../Services/data-and-flags.service';
@@ -10,35 +10,66 @@ import { DataAndFlagsService } from '../Services/data-and-flags.service';
 })
 export class ContainerNoticesComponent implements OnInit, OnDestroy {
 
+  @Input() notes$ = [];
+  subscription: Subscription;
+  onDestroy = false;
+
   @Input() set addNewNotice(isAddedNotice: boolean) {
-    this.getAllNotices();
+    if (isAddedNotice) {
+      this.getAllNotices();
+    }
   }
 
-  @Output() addedNewNotice = new EventEmitter<boolean>();
+  @Input() emptySearch;
 
-  notes$: any;
-  subscription: Subscription;
-  subscriptionOnAddedNewNotice: Subscription;
+  @Output() addedNewNotice = new EventEmitter<boolean>();
 
   constructor(private httpService: HttpService, private dataAndFlags: DataAndFlagsService) { }
 
   ngOnInit() {
-    this.getAllNotices();
+    // this.getAllNotices();
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.onDestroy) {
+      this.subscription.unsubscribe();
+    }
   }
 
   getAllNotices() {
+    // const conditionSearchOn = this.dataAndFlags.isBtnSearchClicked;
+    // const searchableTextRegExp = new RegExp(`${this.dataAndFlags.searchableText}`, 'i');
     this.subscription = this.httpService.getAllNotices().subscribe((data) => {
+     // data.map(obj => obj.changeTime = this.formatTime(obj.changeTime));
+
+      // if (conditionSearchOn) {
+      //   this.notes$ = data.filter(obj => obj.title.search(searchableTextRegExp) > -1);
+      //   if (this.notes$.length === 0) {
+      //     this.emptySearch = true;
+      //   }
+      //   this.dataAndFlags.isBtnSearchClicked = false;
+      // } else {
       this.notes$ = data.reverse();
+    // }
       this.addedNewNotice.emit(false);
+      this.onDestroy = true;
     });
   }
 
-  // checkAdded() {
-  //   this.subscriptionOnAddedNewNotice = this.dataAndFlags.addedNewNotice().subscribe(() => this.getAllNotices());
-  // }
+//   formatTime(prop: number): string {
 
+//     const date = new Date(prop);
+//     let month = '' + date.getMonth();
+//     let hour = '' + date.getHours();
+
+//     if (+month < 10) {
+//       month = `0${+month + 1}`;
+//     }
+
+//     if (+hour < 10) {
+//       hour = `0${hour}`;
+//     }
+
+//     return `${date.getDate()}/${month}/${date.getFullYear()} ${hour}:${date.getMinutes()}`;
+//   }
 }
