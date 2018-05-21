@@ -1,5 +1,5 @@
 <div class="wrapper" *ngIf="noticeOne"  [@flyInOut]="in">
-  <div class="title-edit">Edit Note</div>
+  <div class="title-edit">Edit note</div>
   <div class="main-editor" [style.backgroundColor]="currentColor">
     <div class="title">
       <textarea type="text" spellcheck="false" [class.error]="isErrorText" #titleField [value]='title' (input)="setTitle(titleField.value)" (focus)="onFocusField('title', titleField.value)" (blur)="onBlurField('title', titleField.value)" appHorizontalScrollField></textarea>
