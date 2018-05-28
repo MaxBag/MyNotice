@@ -1,19 +1,14 @@
 <aside class="menu" [class.menu-visible]="getBtnShowMenuClicked()">
   <div class="holder-item">
-    <ul>
-      <li class="all-notes"><a [routerLink]="['..', 'notices']">All Notices</a></li>
-    </ul>
+    <p class="all-notes"><a [routerLink]="['..', 'notices']">All Notices</a></p>
   </div>
   <div class="holder-item">
     <p class="all-labels">Labels (No available)</p>
-    <!-- <ul>
-      <li><a>Notices</a></li>
-    </ul> -->
   </div>
   <div class="holder-item">
     <p class="all-deleted">Deleted (No available)</p>
   </div>
   <div class="holder-item">
-    <p class="about">About</p>
+    <p class="about"><a routerLink="../about">About</a></p>
   </div>
 </aside>

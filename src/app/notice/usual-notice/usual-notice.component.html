@@ -1,20 +1,22 @@
-<div class="usual-notice" [attr.data-id]="note.id" [class.tiles]="getListViewVal()" *ngFor="let note of notes"  [style.backgroundColor]="note.color" [routerLink]="['..', 'edit', note.id]">
-  <div class="title">
-    <div>{{note.title}}</div>
-  </div>
-  <div class="notice">
-    <div>{{note.notice}}</div>
-  </div>
-  <div class="time-holder">
-    <span><span class="text-bold">Changed:</span> {{note.changeTime | formatDate}}</span>
-  </div>
-  <div class="toolbar">
-    <div class="btn-change-color"></div>
-    <div class="btn-save">Save</div>
-    <div class="btn-reset">Reset</div>
-    <!-- <div class="btn-label">Add Label</div> -->
-    <div class="btn-delete">Delete</div>
-    <app-color-pallete></app-color-pallete>
-    <app-label></app-label>
+<div class="notices-holder">
+  <div class="usual-notice" [attr.data-id]="note.id" [class.tiles]="getListViewVal()" *ngFor="let note of notes"  [style.backgroundColor]="note.color" [routerLink]="['..', 'edit', note.id]">
+    <div class="title-holder">
+      <div class="title-content">{{note.title}}</div>
+    </div>
+    <div class="notice-holder">
+      <div class="notice-content">{{note.notice}}</div>
+    </div>
+    <div class="time-holder">
+      <span><span class="text-bold">Changed:</span> {{note.changeTime | formatDate}}</span>
+    </div>
+    <div class="toolbar">
+      <div class="btn-change-color"></div>
+      <div class="btn-save">Save</div>
+      <div class="btn-reset">Reset</div>
+      <!-- <div class="btn-label">Add Label</div> -->
+      <div class="btn-delete">Delete</div>
+      <app-color-pallete></app-color-pallete>
+      <app-label></app-label>
+    </div>
   </div>
 </div>

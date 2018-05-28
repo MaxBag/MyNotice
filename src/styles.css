@@ -27,12 +27,12 @@ img{border-style:none;}
 a{
   color:#000;
 }
+
 a:hover{text-decoration:none;}
   
-/* input{
-  font:100% Arial, Helvetica, sans-serif;
+input{
   vertical-align: middle;
-} */
+}
 
 form,fieldset{
     margin:0;

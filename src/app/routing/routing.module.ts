@@ -10,6 +10,7 @@ import { NoticeEditorContainerComponent } from '../notice/notice-editor-containe
 import { ContainerNoticesComponent } from '../notice/container-notices/container-notices.component';
 import { NoticeContainerWrapperComponent } from '../notice/notice-container-wrapper/notice-container-wrapper.component';
 import { PageNotFoundComponent } from '../app-common/page-not-found/page-not-found.component';
+import { AboutComponent } from '../app-common/about/about.component';
 
 const routes: Routes  = [
   { path: '', redirectTo: 'notices', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes  = [
     { path: 'search', component: NoticeContainerWrapperComponent },
     { path: 'edit/:id', component: NoticeEditorContainerComponent }
   ]},
+  {path: 'about', component: AboutComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

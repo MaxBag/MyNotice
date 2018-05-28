@@ -102,9 +102,8 @@ export class NoticeEditorComponent extends NoticeCreatorComponent implements OnI
         changeTime: (new Date().getTime())
       };
 
-      this.subscriptionOnSave = this.route.paramMap.switchMap((params: ParamMap) => {
-        return this.http.updateNotice(updatedNotice);
-      }).subscribe(() => {
+      this.subscriptionOnSave = this.http.updateNotice(updatedNotice)
+      .subscribe(() => {
         this.isOnSaveDestroy = true;
         this.goBack();
       });

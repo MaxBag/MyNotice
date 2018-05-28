@@ -14,7 +14,8 @@ import { AboutComponent } from './about/about.component';
   exports: [
     HeaderComponent,
     MenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AboutComponent
   ],
   declarations: [
     HeaderComponent,

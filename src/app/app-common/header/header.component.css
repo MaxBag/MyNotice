@@ -12,6 +12,7 @@ header {
     height: 48px;
     display: flex;
     align-items: center;
+    justify-content: center;
     user-select: none;
     margin: 0 auto;
     width: 80%;
@@ -23,11 +24,8 @@ header {
 
 .menu-holder, .list-view {
     border-radius: 50%;
-    display: inline-block;
     margin: 0 8px;
     padding: 12px;
-    overflow: hidden;
-    vertical-align: middle;
     cursor: pointer;
     height: 24px;
     width: 24px;

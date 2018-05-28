@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener} from '@angular/core';
+import { Directive, ElementRef, HostListener, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[appHorizontalScrollField]'
@@ -6,10 +6,17 @@ import { Directive, ElementRef, HostListener} from '@angular/core';
 export class HorizontalScrollFieldDirective {
   constructor(private el: ElementRef) { }
 
-  @HostListener('input') resizeField() {
+  @HostListener('input') resizeOnInput() {
+    this.resizeField();
+  }
+
+  @HostListener('focus') resizeOnFocus() {
+    this.resizeField();
+  }
+
+  resizeField() {
     if (this.el.nativeElement.value === '') {
       this.el.nativeElement.style.height = '';
-      // this.defaultHeight = false;
     } else {
       this.el.nativeElement.style.height = this.el.nativeElement.scrollHeight + 'px';
     }

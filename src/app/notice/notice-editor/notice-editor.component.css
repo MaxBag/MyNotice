@@ -21,15 +21,11 @@
     padding: 15px 0 0;
 }
 
-.tiles {
-    width: 200px;
-    padding: 0 0 0 20px;
-}
-
 .title, .notice {
     padding: 10px 15px;
     outline: none;
     margin: 0 0 10px;
+    min-height: 44px;
 }
 
 .title textarea, .notice textarea {
@@ -43,12 +39,14 @@
     overflow: hidden;
 } 
 
-.title textarea{
-  font: bold 17px/1.35em 'Roboto Condensed', arial, sans-serif;
+.title textarea {
+    font: bold 17px/1.35em 'Roboto Condensed', arial, sans-serif;
+    height: 45px;
 }
 
-.notice textarea{
+.notice textarea {
     font: 16px/1.36em 'Roboto Slab', 'Times New Roman', serif;
+    height: 85px;
 }
 
 .error {

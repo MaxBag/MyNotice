@@ -1,3 +1,9 @@
+.notices-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .usual-notice:hover {
 	transform: scale(1.006);
 }
@@ -10,28 +16,30 @@
     cursor: pointer;
     min-height: 50px;
     width: 100%;
-    padding: 15px 0 0;
+    padding: 15px 0 30px;
     margin: 0 0 20px;
-    vertical-align: top;
+    position: relative;
 }
 
-.title, .notice {
+.title-holder, .notice-holder {
     padding: 10px 15px;
     outline: none;
     margin: 0 0 10px;
 }
 
-.title div, .notice div {
+.title-content, .notice-content {
     border: none;
     word-wrap: break-word;
 } 
 
-.title div{
+.title-content {
   font: bold 17px/1.35em 'Roboto Condensed', arial, sans-serif;
 }
 
-.notice div{
+.notice-content {
     font: 16px/1.36em 'Roboto Slab', 'Times New Roman', serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .error {
@@ -50,15 +58,17 @@
 }
 
 .toolbar {
-	padding: 0 20px;
-	position: relative;
-}
-
+    padding: 0 20px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+ }
+/*
 .toolbar:after {
 	content: '';
 	display: block;
 	clear: both;
-}
+} */
 
 .btn-change-color {
     float: left;
@@ -91,7 +101,6 @@
 
 .tiles {
     width: 254px;
-    float: left;
     margin: 0 0 20px 20px;
 }
 

@@ -2,10 +2,10 @@
   <div class="title-edit">Edit note</div>
   <div class="main-editor" [style.backgroundColor]="currentColor">
     <div class="title">
-      <textarea type="text" spellcheck="false" [class.error]="isErrorText" #titleField [value]='title' (input)="setTitle(titleField.value)" (focus)="onFocusField('title', titleField.value)" (blur)="onBlurField('title', titleField.value)" appHorizontalScrollField></textarea>
+      <textarea spellcheck="false" [class.error]="isErrorText" #titleField [value]='title' (input)="setTitle(titleField.value)" (focus)="onFocusField('title', titleField.value)" (blur)="onBlurField('title', titleField.value)" appHorizontalScrollField></textarea>
     </div>
     <div class="notice">
-      <textarea type="text" spellcheck="false" [class.error]="isErrorText" #noticeField [value]='notice' (input)="setNotice(noticeField.value)" (focus)="onFocusField('notice', noticeField.value)" (blur)="onBlurField('notice', noticeField.value)" appHorizontalScrollField></textarea>
+      <textarea spellcheck="false" [class.error]="isErrorText" #noticeField [value]='notice' (input)="setNotice(noticeField.value)" (focus)="onFocusField('notice', noticeField.value)" (blur)="onBlurField('notice', noticeField.value)" appHorizontalScrollField></textarea>
     </div>
     <div class="toolbar">
       <div class="btn-change-color" (click)="showPallete()" appSetCoord></div>
